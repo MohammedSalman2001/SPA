@@ -17,7 +17,7 @@ function addTable() {
 
 }
 
-/*====Add Focus Event when user Click Enter====*/
+
 $('#itemId').on('keydown',function (event){
 
     if(event.key==="Enter" && check(itemCodeRegEx, $("#itemId"))){
@@ -61,11 +61,11 @@ $('#itemQtyOnHand').on('keydown',function (event){
 
 });
 
-/*save Item*/
+
 function itemSave(itmCode,itemName,qtOHand,itPrice) {
 
     itemModal(itmCode,itemName,qtOHand,itPrice);
-    /*Double click to remove*/
+
 
     addTable();
     dblClickDelete();
@@ -78,7 +78,7 @@ $('#btnItemSearch').click(function () {
 
     for (let itemKey of itemAr) {
 
-        //check the ComboBox Id Equal
+
         console.log($('#itemCombo').val());
 
         if($('#itemCombo').val()==="ID"){
@@ -104,7 +104,7 @@ $('#btnItemSearch').click(function () {
 });
 
 
-/*Double Click delete*/
+
 function dblClickDelete() {
     $("#tblItem>tr").dblclick(function (){
         deleteItem($(this).children(':eq(0)').text());
@@ -114,7 +114,7 @@ function dblClickDelete() {
 }
 
 
-/*When the table click set data to the field*/
+
 function trSelector() {
 
     $("#tblItem>tr").click(function (){
@@ -133,7 +133,7 @@ function trSelector() {
 
 }
 
-/*for Delete Item*/
+
 $("#btnItemDelete").click(function () {
     let delID = $("#itId").val();
 
@@ -172,7 +172,7 @@ function deleteItem(itemID) {
 }
 
 
-/*Update Item*/
+
 $("#btnItemUpdate").click(function () {
     let itemID = $('#itId').val();
     let response = updateItem(itemID);
@@ -198,7 +198,7 @@ function updateItem(itemsID) {
     }
 }
 
-/*Disable Tab*/
+
 $("#itemId,#itemName,#itemPrice,#itemQtyOnHand").on('keydown', function (event) {
     if (event.key == "Tab") {
         event.preventDefault();
@@ -208,7 +208,7 @@ $("#itemId,#itemName,#itemPrice,#itemQtyOnHand").on('keydown', function (event) 
 
 /*For Validation*/
 
-// Item reguler expressions
+
 
 const itemCodeRegEx = /^(I00-)[0-9]{1,3}$/;
 const itemNameRegEx = /^[A-z ]{5,20}$/;

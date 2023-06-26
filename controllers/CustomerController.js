@@ -17,7 +17,7 @@ function addCustomerTable() {
     trCusSelector();
 }
 
-/*====Add Focus Event when user Click Enter====*/
+
 $('#customerId').on('keydown',function (event){
 
     if(event.key==="Enter" && check(cusIDRegEx, $("#customerId"))){
@@ -59,12 +59,12 @@ $('#customerSalary').on('keydown',function (event){
 
 });
 
-/*save Customer*/
+
 function cusSave(customerID,customerName,customerAddress,customerSalary) {
 
     customerModal(customerID,customerName,customerAddress,customerSalary);
 
-    /*Double click to remove*/
+
 
     addCustomerTable();
     dblClickCusDelete();
@@ -72,7 +72,7 @@ function cusSave(customerID,customerName,customerAddress,customerSalary) {
     clearAllCusData();
 }
 
-/*Search Customer*/
+
 $('#btnSearchButton').click(function () {
 
     for (let customerKey of customerAr) {
@@ -105,7 +105,7 @@ $('#btnSearchButton').click(function () {
 
 
 
-/*Double Click delete*/
+
 function dblClickCusDelete() {
     $("#tblCustomer>tr").dblclick(function (){
         deleteCustomer($(this).children(':eq(0)').text());
@@ -115,7 +115,7 @@ function dblClickCusDelete() {
 }
 
 
-/*When the table click set data to the field*/
+
 function trCusSelector() {
 
     $("#tblCustomer>tr").click(function (){
@@ -137,7 +137,7 @@ function trCusSelector() {
 
 }
 
-/*for Delete Customer*/
+
 $("#btnCusDelete").click(function () {
     let delID = $("#cId").val();
 
@@ -177,7 +177,7 @@ function deleteCustomer(customerID) {
 }
 
 
-/*Update Customer*/
+
 $("#btnCusUpdate").click(function () {
     let customerID = $('#cId').val();
     let response = updateCustomer(customerID);
@@ -203,7 +203,7 @@ function updateCustomer(customerID) {
     }
 }
 
-/*Disable Tab*/
+
 $("#customerId,#customerName,#customerAddress,#customerSalary").on('keydown', function (event) {
     if (event.key == "Tab") {
         event.preventDefault();
@@ -216,7 +216,7 @@ $("#customerId,#customerName,#customerAddress,#customerSalary").on('keydown', fu
 
 $("#customerId").focus();
 
-// customer reguler expressions
+
 const cusIDRegEx = /^(C00-)[0-9]{1,3}$/;
 const cusNameRegEx = /^[A-z ]{5,20}$/;
 const cusAddressRegEx = /^[0-9/A-z. ,]{7,}$/;
